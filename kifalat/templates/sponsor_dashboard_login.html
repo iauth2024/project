@@ -1,0 +1,29 @@
+<!-- kifalat/templates/sponsor_dashboard_login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Kafeel Login</h1>
+    
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    
+    <form method="post" action="{% url 'sponsor_dashboard' kafeel_id=kafeel_id %}">
+        {% csrf_token %}
+        <label for="kafeel_number">Kafeel Number:</label>
+        <input type="number" name="kafeel_number" required>
+        <br>
+        <label for="kafeel_phone">Kafeel Phone:</label>
+        <input type="number" name="kafeel_phone" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
+
